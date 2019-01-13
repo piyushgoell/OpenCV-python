@@ -55,10 +55,15 @@ def aruco_generation(id_aruco, num_pixels):
   	# This function is used to put extra padding to the image. 
   	# cv2.copyMakeBorder(Image, Top, Bottom, Left, Right, borderType, borderColor)
   	img = cv2.copyMakeBorder(img, 50, 50, 50, 50, cv2.BORDER_CONSTANT,value=[255,255,255])
-  
+  	
+	# To find the Required Location on the image for putting text 
+	h,w = img.shape[:2]
+	x = int(w/2-100)
+	y = int(40)
+
   	# This function is used to put text on the image.
 	# cv2.putText(Image , Text, Origin, fontFace, fontScale, color, thickness, lineType, bottomLeftOrigin)
-  	cv2.putText(img, "ArUco ID = "+str(id_aruco),(180,40), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2, cv2.LINE_AA)
+  	cv2.putText(img, "ArUco ID = "+str(id_aruco),(x,y), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2, cv2.LINE_AA)
   
   	# This function is used to display image in specified window on the screen.
   	# cv2.imshow('windowName',Image)
@@ -78,6 +83,7 @@ def aruco_generation(id_aruco, num_pixels):
 #################################          Main Function            ##############################################################
 ################################################################################################################################## 
 if __name__ == "__main__":
+	
   	'''
   	For generating ArUco Id's of Differnet Dictionaries 
   	There is a slight change in the line no. 45 as per the requirement
