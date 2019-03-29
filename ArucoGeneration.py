@@ -71,7 +71,7 @@ def aruco_generation(id_aruco, num_pixels):
   
   	# This function is used to save the image in JPG format in the working directory.
   	# cv2.imwrite('file name',Image)
-  	cv2.imwrite('ArUco'+str(id_aruco)+'.jpg',img)
+  	cv2.imwrite('Images/ArUco'+str(id_aruco)+'.jpg',img)
   
   	#This function is used to hold the program for indefinitely for a key stroke
   	cv2.waitKey(0)
